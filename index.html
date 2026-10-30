@@ -1,0 +1,198 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Assignment 6 — Birthday Party Detective</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <p class="eyebrow">AITU · WEB TECHNOLOGIES · ASSIGNMENT 6</p>
+
+    <h1>Birthday Party Detective</h1>
+
+    <p class="subtitle">
+      The party is from 19:30 to 22:30.
+      The cake disappeared at 21:30.
+      Explore the house and find the thief.
+    </p>
+
+    <div class="header-meta">
+      <span>4 rooms</span>
+      <span>2 floors</span>
+      <span>20 selector cases</span>
+    </div>
+  </header>
+
+  <main class="page-layout">
+
+    <!-- TASK 1 -->
+    <section
+      class="panel detective-panel"
+      aria-labelledby="detective-heading"
+    >
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">TASK 1</p>
+          <h2 id="detective-heading">Selector Detective</h2>
+        </div>
+
+        <button
+          id="clearBtn"
+          class="button button-light"
+          type="button"
+        >
+          Clear / Reset
+        </button>
+      </div>
+
+      <!-- Guest search -->
+      <div class="search-tools">
+        <label for="searchType">Find guests by</label>
+
+        <select id="searchType">
+          <option value="all">Any detail</option>
+          <option value="name">Name / data-name attribute</option>
+          <option value="class">CSS class / clothing color</option>
+          <option value="room">Room</option>
+          <option value="floor">Floor / data-floor attribute</option>
+          <option value="thing">Belongings / class</option>
+          <option value="aitu">AITU status / class</option>
+          <option value="time">Arrival time / data-time attribute</option>
+        </select>
+
+        <input
+          id="guestSearch"
+          type="search"
+          placeholder="Try Aruzhan, green, phone, Hall, 2, AITU…"
+          aria-label="Search guests"
+        >
+
+        <button
+          id="searchBtn"
+          class="button"
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+
+      <!-- Case buttons -->
+      <div
+        id="caseButtons"
+        class="case-grid"
+        aria-label="Selector cases"
+      ></div>
+
+      <!-- Task 1 results -->
+      <div
+        id="result"
+        class="result-box"
+        role="status"
+        aria-live="polite"
+      >
+        <p>
+          <strong>Task 1 result:</strong>
+          choose Case 1–20 or use Search.
+        </p>
+
+        <p>
+          The result will show
+          <strong>Question → Answer → Names → jQuery chain</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- TASK 2 -->
+    <section
+      class="panel house-panel"
+      aria-labelledby="house-heading"
+    >
+      <div class="section-title house-title">
+        <div>
+          <p class="eyebrow">TASK 2</p>
+          <h2 id="house-heading">The Party in Motion</h2>
+        </div>
+      </div>
+
+      <div class="house-roof">
+        <span class="roof-window">✦</span>
+        <strong>The Party, 19:30 – 22:30</strong>
+      </div>
+
+      <!-- Second floor -->
+      <div class="floor-label">
+        <span>2</span>
+        SECOND FLOOR
+      </div>
+
+      <div
+        id="floor-2"
+        class="floor"
+        data-floor="2"
+      ></div>
+
+      <!-- Ground floor -->
+      <div class="floor-label">
+        <span>1</span>
+        GROUND FLOOR
+      </div>
+
+      <div
+        id="floor-1"
+        class="floor"
+        data-floor="1"
+      ></div>
+
+      <!-- Legend -->
+      <div class="legend" aria-label="Legend">
+        <div class="legend-colors">
+          <span class="dot red"></span>
+          <span class="dot blue"></span>
+          <span class="dot green"></span>
+          <span class="dot black"></span>
+          <span class="dot yellow"></span>
+          <span class="dot purple"></span>
+          <b>Clothing color</b>
+        </div>
+
+        <span>▯ Phone</span>
+        <span>♧ Glasses</span>
+        <span>♙ Bag</span>
+        <span>☕ Cup</span>
+        <span>▧ Cake crumbs</span>
+        <span>◷ Arrival time</span>
+        <span>🎓 AITU student</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Guest information modal -->
+  <div
+    id="guestModal"
+    class="modal-backdrop"
+    aria-hidden="true"
+  >
+    <section
+      id="guestCard"
+      class="guest-modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalName"
+    ></section>
+  </div>
+
+  <footer>
+    <span>Assignment 6 · jQuery Selectors, Effects &amp; Animations</span>
+    <span>All interactions are powered by jQuery.</span>
+  </footer>
+</body>
+</html>
